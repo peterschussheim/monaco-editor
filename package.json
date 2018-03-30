@@ -1,0 +1,31 @@
+{
+  "name": "monaco-single-file",
+  "version": "1.0.0",
+  "description":
+    "Single-file ESM build of monaco, for easy use with create-react-app.",
+  "main": "./dist/monaco.min.js",
+  "author":
+    "Peter Schussheim <peter@schussheim.com> (https://peterschussheim.com/)",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "webpack",
+    "precommit": "pretty-quick --staged"
+  },
+  "devDependencies": {
+    "babel-loader": "7.1.4",
+    "css-loader": "0.28.11",
+    "eslint-config-prettier": "2.9.0",
+    "eslint-plugin-prettier": "2.6.0",
+    "monaco-editor": "0.11.1",
+    "prettier": "1.11.1",
+    "pretty-quick": "1.4.1",
+    "style-loader": "0.20.3",
+    "webpack": "4.4.1",
+    "webpack-cli": "2.0.13"
+  },
+  "dependencies": {
+    "eslint": "4.19.1"
+  },
+  "keywords": ["monaco"]
+}
