@@ -1,31 +1,37 @@
 {
-  "name": "monaco-single-file",
-  "version": "1.0.0",
-  "description":
-    "Single-file ESM build of monaco, for easy use with create-react-app.",
+  "name": "@peterschussheim/monaco-editor",
+  "version": "0.11.1",
+  "description": "Single file ESM build of monaco.",
   "main": "./dist/monaco.min.js",
   "author":
     "Peter Schussheim <peter@schussheim.com> (https://peterschussheim.com/)",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/peterschussheim/monaco-editor/issues"
+  },
+  "files": ["dist"],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "webpack",
-    "precommit": "pretty-quick --staged"
+    "build": "yarn clean && cross-env NODE_ENV=production webpack",
+    "clean": "rimraf dist",
+    "precommit": "pretty-quick --staged",
+    "prepare": "yarn build"
   },
   "devDependencies": {
     "babel-loader": "7.1.4",
+    "cross-env": "5.1.4",
     "css-loader": "0.28.11",
+    "eslint": "4.19.1",
     "eslint-config-prettier": "2.9.0",
     "eslint-plugin-prettier": "2.6.0",
     "monaco-editor": "0.11.1",
     "prettier": "1.11.1",
     "pretty-quick": "1.4.1",
+    "rimraf": "2.6.2",
     "style-loader": "0.20.3",
     "webpack": "4.4.1",
     "webpack-cli": "2.0.13"
   },
-  "dependencies": {
-    "eslint": "4.19.1"
-  },
+  "dependencies": {},
+  "homepage": "https://github.com/peterschussheim/monaco-editor",
   "keywords": ["monaco"]
 }
