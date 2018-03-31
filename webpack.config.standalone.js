@@ -3,10 +3,10 @@ const webpack = require('webpack')
 
 module.exports = {
   mode: 'production',
-  entry: './index.js',
+  entry: './standalone.js',
   output: {
     filename: 'monaco.min.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist/standalone'),
     libraryTarget: 'umd',
     library: 'monaco'
   },
