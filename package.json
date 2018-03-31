@@ -2,18 +2,21 @@
   "name": "@peterschussheim/monaco-editor",
   "version": "0.11.1",
   "description": "Single file ESM build of monaco.",
-  "main": "./dist/monaco.min.js",
+  "main": "dist/standalone/monaco.min.js",
   "author": "Peter Schussheim <peter@schussheim.com> (https://peterschussheim.com/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/peterschussheim/monaco-editor/issues"
   },
   "files": [
-    "dist"
+    "dist/standalone",
+    "dist/external"
   ],
   "scripts": {
-    "build": "yarn clean && cross-env NODE_ENV=production webpack",
     "clean": "rimraf dist",
+    "build:standalone": "cross-env NODE_ENV=production webpack --config webpack.config.standalone",
+    "build:external": "cross-env NODE_ENV=production webpack --config webpack.config.external",
+    "build": "yarn clean && yarn build:standalone && yarn build:external",
     "precommit": "pretty-quick --staged",
     "prepublishOnly": "yarn build"
   },
@@ -30,7 +33,6 @@
     "rimraf": "2.6.2",
     "style-loader": "0.20.3",
     "webpack": "4.4.1",
-    "webpack-bundle-analyzer": "2.11.1",
     "webpack-cli": "2.0.13"
   },
   "dependencies": {},
