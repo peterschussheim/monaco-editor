@@ -1,6 +1,6 @@
 {
   "name": "@peterschussheim/monaco-editor",
-  "version": "0.11.2",
+  "version": "0.15.5",
   "description":
     "Externally hostable (multi-file) and single-file ESM builds of monaco-editor.",
   "main": "dist/standalone/monaco.min.js",
