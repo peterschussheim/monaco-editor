@@ -1,23 +1,26 @@
 {
   "name": "@peterschussheim/monaco-editor",
-  "version": "0.15.5",
+  "version": "0.15.6",
   "description":
     "Externally hostable (multi-file) and single-file ESM builds of monaco-editor.",
-  "main": "dist/standalone/monaco.min.js",
+  "main": "dist/esm/monaco.js",
   "author":
     "Peter Schussheim <peter@schussheim.com> (https://peterschussheim.com/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/peterschussheim/monaco-editor/issues"
   },
-  "files": ["dist/standalone", "dist/external"],
+  "files": ["dist/esm", "dist/standalone", "dist/external"],
   "scripts": {
     "clean": "rimraf dist",
+    "build:esm":
+      "cross-env NODE_ENV=production webpack --config webpack.config.esm",
     "build:standalone":
       "cross-env NODE_ENV=production webpack --config webpack.config.standalone",
     "build:external":
       "cross-env NODE_ENV=production webpack --config webpack.config.external",
-    "build": "yarn clean && yarn build:standalone && yarn build:external",
+    "build":
+      "yarn clean && yarn build:esm && yarn build:standalone && yarn build:external",
     "precommit": "pretty-quick --staged",
     "prepublishOnly": "yarn build"
   },
@@ -28,7 +31,8 @@
     "eslint": "4.19.1",
     "eslint-config-prettier": "2.9.0",
     "eslint-plugin-prettier": "2.6.0",
-    "monaco-editor": "0.15.5",
+    "monaco-editor": "0.15.6",
+    "monaco-editor-webpack-plugin": "1.7.0",
     "prettier": "1.11.1",
     "pretty-quick": "1.4.1",
     "rimraf": "2.6.2",
